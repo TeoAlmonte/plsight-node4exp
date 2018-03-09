@@ -21,18 +21,20 @@ sql.connect(config, (err) => {
   if(err) {
     console.log(err);
   } else {
-    console.log('connecte to azure')
+    console.log('connecte to azure');
   }
-})
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 
 const index = require('./routes/index');
+const admin = require('./routes/admin');
 
 // Routes
-app.use('/', index)
+app.use('/', index);
+app.use('/admin', admin);
 
 const port = 5000;
 app.listen(port, (err) =>{
