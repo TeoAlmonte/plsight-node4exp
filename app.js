@@ -5,6 +5,13 @@ const exphbs  = require('express-handlebars');
 const path = require('path');
 const app = express();
 const sql = require('mssql');
+const bodyParser = require('body-parser');
+
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+// Passports
+require('./config/passport')(app);
 
 const config = {
   user: 'adminaccount',
@@ -25,16 +32,24 @@ sql.connect(config, (err) => {
   }
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(session({secret: 'library'}));
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 
 const index = require('./routes/index');
 const admin = require('./routes/admin');
+const auth = require('./routes/auth');
 
 // Routes
 app.use('/', index);
 app.use('/admin', admin);
+app.use('/auth', auth);
 
 const port = 5000;
 app.listen(port, (err) =>{

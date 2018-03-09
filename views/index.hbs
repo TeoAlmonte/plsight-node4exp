@@ -1,6 +1,12 @@
 hersey
 {{title}}
 
+<form name="sign-up" action="/auth/signUp" method="post">
+<label for="sign up">sign up</label>
+  <input type="text" name="username">
+  <input type="password" name="password">
+  <input type="submit" value="submit">
+</form>
 
   {{#each nav}}
     <li><a target="_blank" href="/{{this.link}}">{{this.text}}</a></li>
