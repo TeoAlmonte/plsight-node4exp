@@ -21,7 +21,7 @@ sql.connect(config, (err) => {
   if(err) {
     console.log(err);
   } else {
-    console.log('connecte to azure');
+    console.log('connected to azure');
   }
 });
 
