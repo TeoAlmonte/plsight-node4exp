@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "mssql": "^4.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

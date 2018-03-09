@@ -1,1 +1,17 @@
 hersey
+{{title}}
+
+
+  {{#each nav}}
+    <li><a target="_blank" href="/{{this.link}}">{{this.text}}</a></li>
+  {{/each}}
+
+<h5>users</h5>
+{{#each people}}
+{{this.name}} is {{this.age}}. <br>
+{{/each}}
+
+from Azure <br>
+{{#each recordset}}
+<p>{{this.name}} <a href="/{{this.id}}">view page</a></p> 
+{{/each}}
