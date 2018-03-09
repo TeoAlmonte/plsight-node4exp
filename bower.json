@@ -1,0 +1,22 @@
+{
+  "name": "node",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "teo"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^5.0.8"
+  }
+}
