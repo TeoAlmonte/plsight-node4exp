@@ -10,8 +10,17 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const index = require('./routes/index');
+const admin = require('./routes/admin');
+const auth = require('./routes/auth');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(session({secret: 'library'}));
 // Passports
 require('./config/passport')(app);
+
 
 const config = {
   user: 'adminaccount',
@@ -32,19 +41,10 @@ sql.connect(config, (err) => {
   }
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(session({secret: 'library'}));
-
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 
-const index = require('./routes/index');
-const admin = require('./routes/admin');
-const auth = require('./routes/auth');
 
 // Routes
 app.use('/', index);

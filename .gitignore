@@ -51,4 +51,4 @@ Thumbs.db
 *.config
 *.db
 *.map
-public/lib/*
+/public/lib/*
