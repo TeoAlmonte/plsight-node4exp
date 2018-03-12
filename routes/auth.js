@@ -3,6 +3,10 @@ const router = express.Router();
 const mongodb = require('mongodb').MongoClient;
 const passport = require('passport');
 
+const controller = require('../controllers/pageController')
+
+router.get('/test', controller.test_index)
+
 router.post('/signUp', (req, res) => {
   console.log(req.body);
   const url = 'mongodb://localhost:27017/libapp';
