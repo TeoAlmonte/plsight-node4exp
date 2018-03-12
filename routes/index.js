@@ -59,7 +59,7 @@ router.get('/view', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  let id = new objectId(req.params.id)
+  let id = new objectId(req.params.id);
   const url = 'mongodb://localhost:27017/libapp';
   mongodb.connect(url, (err, client) => {
     let db = client.db('libapp');
@@ -71,11 +71,11 @@ router.get('/:id', (req, res) => {
           title: 'hey',
           nav: nav,
           result: results
-        })
+        });
       }
-    )
-  })
-})
+    );
+  });
+});
 
 
 
